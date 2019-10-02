@@ -35,6 +35,9 @@
 # Now compare the real mean to the bootstrapped means- is it more than one standard deviation from the model population mean?
   Bootstrapping <- ggplot(data = DistributionOfModelMeans, mapping = aes(x = DistributionOfModelMeans)) + geom_histogram(mapping = aes(y = (..count../sum(..count..))), binwidth = 0.008) + geom_vline(xintercept = MeanOfRealPairs, size = 1, colour = "#FF3721", linetype = "dashed") + ggtitle("Null Distribution of Mean Relatedness in POPULATION") + labs(x = "Mean Relatedness of Resample", y = "Proportion of Resamples") + theme_bw()
   plot(Bootstrapping)
+  
+# Save your plot, if desired:
+  ggsave("INSERTFILENAME.tiff")
 
 
 

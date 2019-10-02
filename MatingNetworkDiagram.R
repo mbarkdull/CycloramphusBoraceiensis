@@ -51,6 +51,9 @@ write_csv(Nodes, path = "INSERTPARENTNODESHERE.csv")
     ggraph(my_graph) + geom_edge_link0(edge_colour = "gray73") + geom_node_point(mapping = aes(color = LifeStage, size = degree, alpha = Inferred)) +  geom_node_text(aes(filter = degree > 1, label = IndividualID, angle = label_data$plottingangle), size = 3) + scale_shape_manual(values = c(0, 19)) +  coord_fixed() + theme_graph() + theme(legend.position = "none") + ggtitle("Mating System in Caraguatatuba")
     ParentNetworkGraph <- ggraph(my_graph) + geom_edge_link0(edge_colour = "gray73") + geom_node_point(mapping = aes(color = LifeStage, size = degree, alpha = Inferred)) +  geom_node_text(aes(filter = degree > 1, label = IndividualID, angle = label_data$plottingangle), size = 3) + scale_shape_manual(values = c(0, 19)) +  coord_fixed() + theme_graph() + theme(legend.position = "none") + ggtitle("Mating System in Caraguatatuba")
 
+# Save your plot, if desired:
+  ggsave("INSERTFILENAME.tiff")
+    
 # This graph changes the transparency of the edges depending on the probability value assigned to them by Colony:
   # I'd like to scale the transparency to match the bins of probability values we will mention in the text (>90%, >75%, etc.).
     ggraph(my_graph) + geom_edge_link0(mapping = aes(alpha = Probability), edge_colour = "gray73") + geom_node_point(mapping = aes(color = LifeStage, size = degree, alpha = Inferred)) +  geom_node_text(aes(filter = degree > 1, label = IndividualID, angle = label_data$plottingangle), size = 3) + scale_shape_manual(values = c(0, 19)) +  coord_fixed() + theme_graph() + theme(legend.position = "none") + ggtitle("Mating System in Caraguatatuba")
